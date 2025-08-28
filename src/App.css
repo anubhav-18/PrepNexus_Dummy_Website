@@ -52,7 +52,7 @@
   box-sizing: border-box;
 }
 
-body {
+/* body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background: #f1f5f9;
   color: #1e293b;
@@ -68,7 +68,7 @@ body {
   background-size: 400% 400%;
   animation: gradient-shift 15s ease infinite;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-}
+} */
 
 /* Animations */
 @keyframes gradient-shift {

@@ -50,9 +50,9 @@ const ProgressDashboard = () => {
     <section className="progress-dashboard" id="progress">
       <div className="container">
         <div className="section-header">
-          <div className="section-badge">📊 Progress Dashboard</div>
-          <h2 className="section-title">Track Your Learning Journey</h2>
-          <p className="section-subtitle">Monitor your progress, identify strengths, and focus on areas that need improvement</p>
+          <div className="section-badge">📊 Your Progress, Visualized in Real-Time</div>
+          <h2 className="section-title">Your Progress, Visualized in Real-Time</h2>
+          <p className="section-subtitle">Track your journey, celebrate progress, and stay on course with AI-powered dashboards.</p>
         </div>
 
         {/* Quick Stats Cards */}
@@ -60,29 +60,29 @@ const ProgressDashboard = () => {
           <div className="stat-card">
             <div className="stat-icon">⏱️</div>
             <div className="stat-content">
-              <h3>{studyStats.totalTime}</h3>
-              <p>Total Study Time</p>
+              <h3>2,847</h3>
+              <p>Questions solved</p>
             </div>
           </div>
           <div className="stat-card">
             <div className="stat-icon">🎯</div>
             <div className="stat-content">
-              <h3>{studyStats.questionsSolved}</h3>
-              <p>Questions Solved</p>
+              <h3>78.5%</h3>
+              <p>Accuracy rate</p>
             </div>
           </div>
           <div className="stat-card">
             <div className="stat-icon">📝</div>
             <div className="stat-content">
-              <h3>{studyStats.testsTaken}</h3>
-              <p>Tests Completed</p>
+              <h3>Strong vs weak</h3>
+              <p>Topic split</p>
             </div>
           </div>
           <div className="stat-card">
             <div className="stat-icon">✅</div>
             <div className="stat-content">
-              <h3>{studyStats.accuracy}%</h3>
-              <p>Overall Accuracy</p>
+              <h3>Next best</h3>
+              <p>AI recommendation</p>
             </div>
           </div>
         </div>

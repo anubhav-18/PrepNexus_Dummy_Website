@@ -1,7 +1,6 @@
-// removed duplicate React import
-
 
 import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const navRef = useRef(null);
@@ -23,16 +22,18 @@ const Navbar = () => {
     <nav className="navbar" ref={navRef}>
       <div className="nav-container">
         <div className="logo">
-          <span className="logo-icon" role="img" aria-label="brain">🧠</span>
-          <span className="logo-text">PrepNexus</span>
+          <Link to="/" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <span className="logo-icon" role="img" aria-label="brain">🧠</span>
+            <span className="logo-text">PrepNexus</span>
+          </Link>
         </div>
         <ul className="nav-links">
           <li><a href="#features">Features</a></li>
-          <li><a href="#monitoring">AI Monitor</a></li>
-          <li><a href="#tests">Test Series</a></li>
-          <li><a href="#subjects">Subjects</a></li>
+          <li><a href="#monitoring">AI Tutor</a></li>
+          <li><Link to="/pricing">Pricing</Link></li>
           <li><a href="#testimonials">Reviews</a></li>
-          <li><a href="#download" className="nav-cta">Get App</a></li>
+          <li><a href="#schools">For Schools</a></li>
+          <li><a href="#download" className="nav-cta">Start Free Trial</a></li>
         </ul>
         <div className="mobile-menu-toggle">
           <span></span>

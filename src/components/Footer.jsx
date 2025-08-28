@@ -9,7 +9,7 @@ const Footer = () => (
             <span className="logo-icon">🧠</span>
             <span className="logo-text">PrepNexus</span>
           </div>
-          <p>Transforming education with artificial intelligence. Personalized learning for every student.</p>
+          <p>PrepNexus — AI that learns with you, for you.</p>
           <div className="social-links">
             <a href="#"><i className="fab fa-facebook-f"></i></a>
             <a href="#"><i className="fab fa-twitter"></i></a>
@@ -19,10 +19,10 @@ const Footer = () => (
         </div>
         <div className="footer-section">
           <h4>Features</h4>
-          <a href="#features">AI Monitoring</a>
-          <a href="#features">Adaptive Tests</a>
-          <a href="#features">Personalized Plans</a>
-          <a href="#features">24/7 AI Tutor</a>
+          <a href="#features">AI Doubt Solver</a>
+          <a href="#features">Personalized Mocks</a>
+          <a href="#features">Smart Analytics</a>
+          <a href="#features">AI Study Planner</a>
         </div>
         <div className="footer-section">
           <h4>Subjects</h4>
@@ -33,14 +33,14 @@ const Footer = () => (
         </div>
         <div className="footer-section">
           <h4>Support</h4>
-          <a href="#">Help Center</a>
-          <a href="#">Contact Us</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
+          <a href="#help">Help Center</a>
+          <a href="#contact">Contact</a>
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#terms">Terms</a>
         </div>
       </div>
       <div className="footer-bottom">
-  <p>&copy; 2025 PrepNexus. All rights reserved. Made with ❤️ for students.</p>
+  <p>&copy; 2025 PrepNexus. All rights reserved.</p>
       </div>
     </div>
   </footer>

@@ -364,45 +364,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* MAIN BODY WITH DOT GRID BACKGROUND */
-body.white-theme {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #f8fafc;
-  background-image: radial-gradient(circle, #000 1px, transparent 1px);
-  background-size: 32px 32px;
-/* Glassmorphism effect for main content */
-.glassmorphism {
-  background: rgba(255, 255, 255, 0.18);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.24);
-}
-  color: #334155;
-  line-height: 1.6;
-  overflow-x: hidden;
-  position: relative;
-}
-
-/* COMPLETE DOT GRID BACKGROUND - COVERS ENTIRE PAGE */
-
-/* INTERACTIVE HOVER EFFECT FOR DOTS */
-#dot-hover-effect {
-  position: fixed;
-  width: 150px;
-  height: 150px;
-  background-image: radial-gradient(circle at center, rgba(0,0,0,0.5) 1px, transparent 1px);
-  background-size: 20px 20px;
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  z-index: -1;
-  mix-blend-mode: multiply;
-}
-
 /* Container */
 .container {
   max-width: 1200px;
@@ -439,7 +400,7 @@ body.white-theme {
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  margin: 17px 100px 0 80px;
+  margin: 18px 100px 0 80px;
   border-radius: 24px;
   border: 1.5px solid rgba(255, 255, 255, 0.18);
   left: 200px;
@@ -456,11 +417,13 @@ body.white-theme {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   max-width: 1400px;
   margin: 0 auto;
+  min-height: 70px;
 }
 
 .navbar.scrolled .nav-container {
-  padding: 10px 18px;
+  padding: 5px 16px;
   max-width: 900px;
+  min-height: 50px;
 }
 
 .logo {
@@ -475,11 +438,11 @@ body.white-theme {
 }
 
 .navbar.scrolled .logo {
-  font-size: 18px;
+  font-size: 1   6px;
 }
 
 .logo:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .logo-icon {
@@ -489,7 +452,7 @@ body.white-theme {
 }
 
 .navbar.scrolled .logo-icon {
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .logo-text {
@@ -505,7 +468,17 @@ body.white-theme {
 }
 
 .navbar.scrolled .nav-links {
-  gap: 24px;
+  gap: 20px;
+}
+
+.navbar.scrolled .nav-links a {
+  font-size: 14px;
+  padding: 6px 0;
+}
+
+.navbar.scrolled .nav-cta {
+  padding: 8px 16px !important;
+  font-size: 14px;
 }
 
 .nav-links a {
@@ -515,6 +488,7 @@ body.white-theme {
   transition: all 0.3s ease;
   padding: 8px 0;
   position: relative;
+  font-size: 16px;
 }
 
 .nav-links a:hover {
@@ -543,6 +517,7 @@ body.white-theme {
   border-radius: 8px !important;
   font-weight: 600 !important;
   transition: all 0.3s ease !important;
+  font-size: 16px;
 }
 
 .nav-cta:hover {
@@ -1773,9 +1748,7 @@ body.white-theme {
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
 }
 
-.download-icon {
-  font-size: 32px;
-}
+/* */
 
 .download-text strong {
   display: block;

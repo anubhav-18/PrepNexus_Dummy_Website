@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom";
 
 
 const CTA = () => {
@@ -9,7 +10,7 @@ const CTA = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const statEls = statsRef.current.querySelectorAll('.stat-number');
-    const endValues = [50000, 4.8, 95];
+    const endValues = [50, 4.8, 95];
     const suffixes = ["K+", "", "%"];
     statEls.forEach((el, i) => {
       gsap.fromTo(el, { innerText: 0 }, {
@@ -39,14 +40,14 @@ const CTA = () => {
     <section id="download" className="cta">
       <div className="container">
         <div className="cta-content">
-          <div className="cta-badge">🎉 Get Started Today</div>
-          <h2>Join thousands of successful students</h2>
-          <p>Start your AI-powered preparation journey today and transform your exam results with personalized learning.</p>
+          <div className="cta-badge">✨ Start Your AI-Powered Prep Journey Today</div>
+          <h2>Start Your AI-Powered Prep Journey Today</h2>
+          <p>Don’t just prepare harder. Prepare smarter — with your personal AI tutor.</p>
           <div className="app-download">
             <a href="#" className="download-btn">
               <i className="fab fa-google-play download-icon"></i>
               <div className="download-text">
-                <strong>Get it on</strong>
+                <strong>Download on</strong>
                 <small>Google Play</small>
               </div>
             </a>
@@ -57,8 +58,9 @@ const CTA = () => {
                 <small>App Store</small>
               </div>
             </a>
+
           </div>
-          <div className="cta-stats" ref={statsRef}>
+                     <div className="cta-stats" ref={statsRef}>
             <div className="stat">
               <div className="stat-number">50K+</div>
               <div className="stat-label">Downloads</div>
@@ -67,11 +69,12 @@ const CTA = () => {
               <div className="stat-number">4.8</div>
               <div className="stat-label">Rating</div>
             </div>
-            <div className="stat">
-              <div className="stat-number">95%</div>
-              <div className="stat-label">Success Rate</div>
-            </div>
-          </div>
+                         <div className="stat">
+               <div className="stat-number">95%</div>
+               <div className="stat-label">Success Rate</div>
+             </div>
+           </div>
+           
         </div>
       </div>
     </section>

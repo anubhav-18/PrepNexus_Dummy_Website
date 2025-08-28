@@ -5,29 +5,29 @@ const Monitoring = () => (
     <div className="container">
       <div className="monitoring-content">
         <div className="monitoring-text">
-          <div className="section-badge">🔍 Real-time Analysis</div>
-          <h2>Analyzing your performance...</h2>
-          <p>Our advanced AI system continuously analyzes your performance, learning patterns, and progress to provide personalized insights and recommendations.</p>
+          <div className="section-badge">🔍 Learn Smarter with AI Insights</div>
+          <h2>Learn Smarter with AI Insights</h2>
+          <p>Our AI continuously analyzes your performance and guides you with actionable feedback.</p>
           <div className="monitoring-features">
             <div className="monitoring-feature">
               <div className="feature-check">✓</div>
               <div>
-                <h4>Performance Tracking</h4>
-                <p>Real-time monitoring of your scores, accuracy, and time management across all subjects and topics.</p>
+                <h4>“You’re strong in Mechanics but need practice in Organic Chemistry.”</h4>
+                <p>We’ll create a focused practice set for Organic Chemistry today.</p>
               </div>
             </div>
             <div className="monitoring-feature">
               <div className="feature-check">✓</div>
               <div>
-                <h4>Weak Area Detection</h4>
-                <p>AI automatically identifies topics where you need more practice and creates focused study plans.</p>
+                <h4>“You solve Biology fast but often miss Genetics questions.”</h4>
+                <p>Try this Genetics revision pack to improve accuracy.</p>
               </div>
             </div>
             <div className="monitoring-feature">
               <div className="feature-check">✓</div>
               <div>
-                <h4>Adaptive Content</h4>
-                <p>Content difficulty and study material adapt based on your progress and learning speed.</p>
+                <h4>“Accuracy is improving; time management needs work.”</h4>
+                <p>Practice timed quizzes to build speed without losing accuracy.</p>
               </div>
             </div>
           </div>

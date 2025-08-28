@@ -102,18 +102,17 @@ const Hero = ({ onShowAuth }) => {
         <div className="hero-text" ref={textRef}>
           <div className="hero-badge">
             <span className="badge-dot"></span>
-            <span>AI-Powered Education</span>
+            <span>PrepNexus — Your Personal AI Tutor</span>
           </div>
           <h1>
-            Personalized learning <br />
-            <span className="highlight">powered by AI</span>
+             Your Personal AI Tutor for JEE & NEET
           </h1>
           <p className="ai-desc">
-            Get real-time monitoring, adaptive test series, and AI-guided study plans tailored to your strengths and weaknesses. Transform your JEE/NEET preparation with cutting-edge AI technology.
+            PrepNexus adapts to your strengths, weaknesses, and schedule. Get personalized mocks, instant doubt solving, and AI-crafted study plans — all in one app.
           </p>
           <div className="hero-buttons" ref={buttonsRef}>
             <a href="#download" className="btn btn-primary">
-              <span>Get Started</span>
+              <span>Start Free Trial</span>
               <i className="fas fa-arrow-right"></i>
             </a>
             <a href="#demo" className="btn btn-outline">
@@ -127,16 +126,16 @@ const Hero = ({ onShowAuth }) => {
           </div>
           <div className="hero-stats" ref={statsRef}>
             <div className="stat-item">
-              <span className="number">50,000</span>
-              <span className="label">Students</span>
-            </div>
-            <div className="stat-item">
-              <span className="number">95%</span>
-              <span className="label">Success Rate</span>
+              <span className="number">30%</span>
+              <span className="label">Early users improved in beta</span>
             </div>
             <div className="stat-item">
               <span className="number">24/7</span>
-              <span className="label">AI Support</span>
+              <span className="label">AI tutor available</span>
+            </div>
+            <div className="stat-item">
+              <span className="number">100%</span>
+              <span className="label">Personalized for every student</span>
             </div>
           </div>
         </div>
@@ -184,6 +183,9 @@ const Hero = ({ onShowAuth }) => {
             <div className="sparkle" style={{zIndex: 2}}></div>
             <div className="sparkle" style={{zIndex: 2}}></div>
             <div className="sparkle" style={{zIndex: 2}}></div>
+            <div className="chatbot-teaser" style={{marginTop: 8}}>
+              💬 “Hi! I’m your AI Study Buddy. Ask me a doubt, get a study plan, or start a quick mock test.”
+            </div>
             <BubblesTyping />
           </div>
         </div>
