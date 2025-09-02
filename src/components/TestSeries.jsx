@@ -4,7 +4,6 @@ const TestSeries = () => (
   <section id="tests" className="test-series">
     <div className="container">
       <div className="section-header">
-        <div className="section-badge">📝 Mocks That Adapt to You</div>
         <h2>Mocks That Adapt to You</h2>
         <p>No two students ever get the same test. Every mock is personalized to your level.</p>
       </div>

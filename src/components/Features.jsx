@@ -13,7 +13,6 @@ const Features = () => (
   <section id="features" className="features">
     <div className="container">
       <div className="section-header">
-        <div className="section-badge">⚡ Smarter Learning, Powered by AI</div>
         <h2 className="section-title">Smarter Learning, Powered by AI</h2>
         <p className="section-subtitle">Everything you need for JEE & NEET — personalized and adaptive</p>
       </div>
@@ -29,7 +28,7 @@ const Features = () => (
           </div>
         </div>
         <div className="feature-card">
-                                           <div className="feature-icon">
+            <div className="feature-icon">
               <FaBrain style={{ fontSize: '2rem', color: '#f5f5f5' }} />
             </div>
           <h3>Personalized Mocks</h3>

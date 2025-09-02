@@ -4,7 +4,6 @@ const Subjects = () => (
   <section id="subjects" className="subjects">
     <div className="container">
       <div className="section-header">
-        <div className="section-badge">📚 Complete JEE & NEET Coverage, AI-Curated</div>
         <h2>Complete JEE & NEET Coverage, AI-Curated</h2>
         <p>Physics, Chemistry, Mathematics, and Biology — curated with AI for maximum retention</p>
       </div>

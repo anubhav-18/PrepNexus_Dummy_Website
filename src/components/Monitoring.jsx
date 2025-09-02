@@ -5,7 +5,6 @@ const Monitoring = () => (
     <div className="container">
       <div className="monitoring-content">
         <div className="monitoring-text">
-          <div className="section-badge">🔍 Learn Smarter with AI Insights</div>
           <h2>Learn Smarter with AI Insights</h2>
           <p>Our AI continuously analyzes your performance and guides you with actionable feedback.</p>
           <div className="monitoring-features">

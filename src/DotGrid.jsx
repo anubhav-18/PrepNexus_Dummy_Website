@@ -170,6 +170,8 @@ const DotGrid = ({
 
   useEffect(() => {
     const onMove = (e) => {
+      if (!canvasRef.current) return;
+      
       const now = performance.now();
       const pr = pointerRef.current;
       const dt = pr.lastTime ? now - pr.lastTime : 16;
@@ -191,11 +193,14 @@ const DotGrid = ({
       pr.vy = vy;
       pr.speed = speed;
 
-      const rect = canvasRef.current.getBoundingClientRect();
-      pr.x = e.clientX - rect.left;
-      pr.y = e.clientY - rect.top;
+        const rect = canvasRef.current.getBoundingClientRect();
+        pr.x = e.clientX - rect.left;
+        pr.y = e.clientY - rect.top;
 
-      for (const dot of dotsRef.current) {
+        if (!dotsRef.current) return;
+        
+        for (const dot of dotsRef.current) {
+        if (!dot) continue;
         const dist = Math.hypot(dot.cx - pr.x, dot.cy - pr.y);
         if (speed > speedTrigger && dist < proximity && !dot._inertiaApplied) {
           dot._inertiaApplied = true;
@@ -246,13 +251,24 @@ const DotGrid = ({
       }
     };
 
-    const throttledMove = throttle(onMove, 50);
-    window.addEventListener("mousemove", throttledMove, { passive: true });
-    window.addEventListener("click", onClick);
-
+    const throttledMove = throttle(onMove, 16);
+    window.addEventListener('mousemove', throttledMove);
+    window.addEventListener('click', onClick);
+    
     return () => {
-      window.removeEventListener("mousemove", throttledMove);
-      window.removeEventListener("click", onClick);
+      window.removeEventListener('mousemove', throttledMove);
+      window.removeEventListener('click', onClick);
+      // Reset pointer reference on unmount
+      pointerRef.current = {
+        x: 0,
+        y: 0,
+        vx: 0,
+        vy: 0,
+        speed: 0,
+        lastTime: 0,
+        lastX: 0,
+        lastY: 0
+      };
     };
   }, [
     maxSpeed,
@@ -261,7 +277,7 @@ const DotGrid = ({
     resistance,
     returnDuration,
     shockRadius,
-    shockStrength,
+    shockStrength
   ]);
 
   return (

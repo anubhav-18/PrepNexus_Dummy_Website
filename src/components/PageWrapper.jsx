@@ -7,7 +7,7 @@ const PageWrapper = ({ children, className = '', style = {} }) => {
       className={className}
       style={{
         minHeight: '100vh',
-        background: '#f2f2f2',
+        background: '#F1F0E4',
         position: 'relative',
         overflow: 'hidden',
         ...style

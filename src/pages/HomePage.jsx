@@ -3,7 +3,6 @@ import DotGrid from '../DotGrid';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Features from '../components/Features';
-import ProgressDashboard from '../components/ProgressDashboard';
 import Monitoring from '../components/Monitoring';
 import TestSeries from '../components/TestSeries';
 import HowItWorks from '../components/HowItWorks';
@@ -78,7 +77,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="App" style={{ minHeight: '100vh', background: '#f2f2f2', position: 'relative', overflow: 'hidden' }}>
+    <div className="App" style={{ minHeight: '100vh', background: '#F1F0E4', position: 'relative', overflow: 'hidden' }}>
       {showAuth ? (
         <Auth onBackToMain={() => setShowAuth(false)} />
       ) : (
@@ -103,7 +102,6 @@ const HomePage = () => {
             <Navbar />
             <Hero onShowAuth={() => setShowAuth(true)} />
             <Features />
-           {/*  <ProgressDashboard /> */}
             <Monitoring />
             <TestSeries />
             <HowItWorks />

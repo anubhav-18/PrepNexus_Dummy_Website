@@ -73,7 +73,6 @@ const Testimonials = () => {
     <section id="testimonials" className="testimonials">
       <div className="container">
         <div className="section-header">
-          <div className="section-badge">💬 Success Stories</div>
           <h2>What Our Early Users Say</h2>
           <p>Join thousands who transformed their preparation with AI-powered learning</p>
         </div>
@@ -115,8 +114,8 @@ const Testimonials = () => {
             <div className="student-info">
               <div className="student-avatar">S</div>
               <div className="student-details">
-                <strong>Student Name</strong>
-                <small>Siddhi Sharma</small>
+                <strong>Siddhi Sharma</strong>
+                <small>Early Beta User</small>
               </div>
             </div>
           </div>

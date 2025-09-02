@@ -7,42 +7,25 @@ const StudentPricing = () => {
 
   const plans = {
     monthly: {
-      basic: { price: 299, originalPrice: 599, savings: '50%' },
-      pro: { price: 499, originalPrice: 999, savings: '50%' },
-      premium: { price: 799, originalPrice: 1499, savings: '47%' }
+      student: { price: 99 }
     },
     annual: {
-      basic: { price: 1499, originalPrice: 3594, savings: '58%' },
-      pro: { price: 2499, originalPrice: 5994, savings: '58%' },
-      premium: { price: 3999, originalPrice: 8994, savings: '56%' }
+      student: { price: 1000 }
     }
   };
 
   const features = {
-    basic: [
-      'AI Doubt Solver (50 questions/day)',
-      '10 Mock Tests per month',
-      'Basic Analytics',
-      'Study Planner',
-      '24/7 AI Tutor Access'
+    monthly: [
+      'Unlimited AI-Personalized Mock Tests',
+      'Unlimited AI-Powered Doubt Solving (personalized)',
+      'Smart Insights with 25+ Performance Metrics',
+      'Weekly & Monthly Progress Reports',
+      'Early Access to New Beta Features'
     ],
-    pro: [
-      'AI Doubt Solver (Unlimited)',
-      'Unlimited Mock Tests',
-      'Advanced Analytics & Insights',
-      'Personalized Study Planner',
-      'Priority Support',
-      'Performance Tracking',
-      'Subject-wise Analysis'
-    ],
-    premium: [
-      'Everything in Pro',
-      '1-on-1 Expert Sessions',
-      'Custom Study Plans',
-      'Advanced AI Features',
-      'Exam Strategy Coaching',
-      'Progress Reports',
-      'Priority Feature Access'
+    annual: [
+      'Everything in Monthly',
+      'Priority Access to Future Features',
+      'Exclusive AI Study Companion Upgrades'
     ]
   };
 
@@ -76,7 +59,7 @@ const StudentPricing = () => {
             backgroundClip: 'text',
             marginBottom: '16px'
           }}>
-            Choose Your Perfect Plan
+            Simple & Affordable Pricing for Every Student
           </h2>
           <p style={{
             fontSize: '1.1rem',
@@ -85,7 +68,7 @@ const StudentPricing = () => {
             margin: '0 auto',
             lineHeight: 1.6
           }}>
-            Start your AI-powered learning journey with plans designed for every student
+            No confusing plans. Just unlimited access at the lowest cost.
           </p>
         </div>
 
@@ -115,20 +98,7 @@ const StudentPricing = () => {
                   cursor: 'pointer'
                 }}
               >
-                {cycle === 'monthly' ? 'Monthly' : 'Annual'} 
-                {cycle === 'annual' && (
-                  <span style={{ 
-                    background: 'linear-gradient(135deg, #10b981, #059669)', 
-                    WebkitBackgroundClip: 'text', 
-                    WebkitTextFillColor: 'transparent', 
-                    backgroundClip: 'text', 
-                    fontSize: '0.75rem', 
-                    fontWeight: 700, 
-                    marginLeft: '4px' 
-                  }}>
-                    Save 58%
-                  </span>
-                )}
+                {cycle === 'monthly' ? 'Monthly' : 'Annual'}
               </button>
             ))}
           </div>
@@ -139,11 +109,13 @@ const StudentPricing = () => {
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
           gap: '24px',
-          marginBottom: '40px'
+          marginBottom: '40px',
+          maxWidth: '800px',
+          margin: '0 auto 40px auto'
         }}>
-          {['basic', 'pro', 'premium'].map((planKey, index) => {
-            const plan = plans[billingCycle][planKey];
-            const isPopular = planKey === 'pro';
+          {[billingCycle].map((planKey, index) => {
+            const plan = plans[billingCycle].student;
+            const isPopular = false;
             
             return (
               <div key={index} style={{
@@ -167,21 +139,6 @@ const StudentPricing = () => {
                   e.currentTarget.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1)'; 
                 }}
               >
-                {isPopular && (
-                  <div style={{
-                    position: 'absolute',
-                    top: '16px',
-                    right: '16px',
-                    background: 'linear-gradient(135deg, #10b981, #059669)',
-                    color: 'white',
-                    padding: '6px 12px',
-                    borderRadius: '20px',
-                    fontSize: '0.75rem',
-                    fontWeight: 700
-                  }}>
-                    Most Popular
-                  </div>
-                )}
 
                 {/* Plan Header */}
                 <div style={{ textAlign: 'center', marginBottom: '24px' }}>
@@ -192,7 +149,7 @@ const StudentPricing = () => {
                     marginBottom: '12px',
                     textTransform: 'capitalize'
                   }}>
-                    {planKey}
+                    {billingCycle === 'monthly' ? 'Monthly' : 'Annual'}
                   </h3>
                   
                   <div style={{ marginBottom: '8px' }}>
@@ -216,14 +173,6 @@ const StudentPricing = () => {
                     </span>
                   </div>
                   
-                  <div style={{
-                    color: '#059669',
-                    fontWeight: 700,
-                    fontSize: '0.85rem',
-                    marginBottom: '16px'
-                  }}>
-                    Save {plan.savings} off ₹{plan.originalPrice}
-                  </div>
                 </div>
 
                 {/* Features */}
@@ -235,7 +184,7 @@ const StudentPricing = () => {
                   flexDirection: 'column', 
                   gap: '12px' 
                 }}>
-                  {features[planKey].map((feature, index) => (
+                  {features[billingCycle].map((feature, index) => (
                     <li key={index} style={{
                       display: 'flex',
                       alignItems: 'center',
@@ -265,9 +214,8 @@ const StudentPricing = () => {
                     fontSize: '0.95rem',
                     transition: 'all 0.4s ease',
                     cursor: 'pointer',
-                    background: isPopular ? 'linear-gradient(135deg, #3b82f6, #1d4ed8)' : '#f1f5f9',
-                    color: isPopular ? 'white' : '#374151',
-                    border: isPopular ? 'none' : '1px solid #e2e8f0',
+                    background: 'linear-gradient(135deg, #3b82f6, #1d4ed8)',
+                    color: 'white',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -275,14 +223,14 @@ const StudentPricing = () => {
                   }}
                     onMouseEnter={(e) => { 
                       e.currentTarget.style.transform = 'translateY(-2px)'; 
-                      e.currentTarget.style.boxShadow = isPopular ? '0 10px 30px rgba(59, 130, 246, 0.4)' : '0 4px 16px rgba(0, 0, 0, 0.1)'; 
+                      e.currentTarget.style.boxShadow = '0 10px 30px rgba(59, 130, 246, 0.4)'; 
                     }}
                     onMouseLeave={(e) => { 
                       e.currentTarget.style.transform = 'none'; 
-                      e.currentTarget.style.boxShadow = isPopular ? '0 8px 24px rgba(59, 130, 246, 0.3)' : 'none'; 
+                      e.currentTarget.style.boxShadow = '0 8px 24px rgba(59, 130, 246, 0.3)'; 
                     }}
                   >
-                    Start Free Trial
+                    Get Started
                     <FaArrowRight style={{ fontSize: '0.8rem' }} />
                   </button>
                 </Link>
@@ -342,13 +290,7 @@ const StudentPricing = () => {
                   <FaArrowRight style={{ fontSize: '0.8rem' }} />
                 </button>
               </Link>
-            </div>
-            <div style={{ 
-              textAlign: 'center', 
-              marginTop: '24px',
-              fontSize: '0.9rem',
-              color: '#3b82f6'
-            }}>
+              <br /><br /><br />
               <Link to="/pricing" style={{ 
                 color: '#3b82f6', 
                 textDecoration: 'underline',
@@ -356,6 +298,14 @@ const StudentPricing = () => {
               }}>
                 For Schools/Institutions → Learn More
               </Link>
+            </div>
+            <div style={{ 
+              textAlign: 'center', 
+              marginTop: '24px',
+              fontSize: '0.9rem',
+              color: '#3b82f6'
+            }}>
+              
             </div>
           </div>
       </div>

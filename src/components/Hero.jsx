@@ -47,63 +47,19 @@ const Hero = ({ onShowAuth }) => {
   const heroRef = useRef();
   const textRef = useRef();
   const buttonsRef = useRef();
-  const statsRef = useRef();
 
   useEffect(() => {
-    // Animate progress bars on mount
-    const fills = document.querySelectorAll(".mock-progress .progress-fill");
-    fills.forEach((el) => {
-      const width = el.getAttribute("data-width") || el.style.width || "0%";
-      el.style.width = "0%";
-      setTimeout(() => {
-        el.style.transition = "width 2s cubic-bezier(0.4,0,0.2,1)";
-        el.style.width = width.endsWith("%") ? width : width + "%";
-      }, 100);
-    });
-
     // GSAP entrance animations
     const tl = gsap.timeline();
     tl.from(textRef.current, { y: 40, opacity: 0, duration: 0.8, ease: "power3.out" })
-      .from(buttonsRef.current, { y: 30, opacity: 0, duration: 0.6, ease: "power3.out" }, "-=0.4")
-      .from(statsRef.current, { y: 20, opacity: 0, duration: 0.6, ease: "power3.out" }, "-=0.3");
+      .from(buttonsRef.current, { y: 30, opacity: 0, duration: 0.6, ease: "power3.out" }, "-=0.4");
     gsap.registerPlugin(ScrollTrigger);
-
-    // Animate numbers on scroll into view
-    const statNumbers = statsRef.current.querySelectorAll('.number');
-    const endValues = [50000, 95, 24];
-    const suffixes = ["", "%", "/7"];
-    statNumbers.forEach((el, i) => {
-      gsap.fromTo(el, { innerText: 0 }, {
-        innerText: endValues[i],
-        duration: 2,
-        ease: "power1.out",
-        scrollTrigger: {
-          trigger: statsRef.current,
-          start: "top 80%",
-          once: true
-        },
-        snap: { innerText: 1 },
-        onUpdate: function () {
-          if (i === 0) {
-            el.innerText = Math.floor(el.innerText).toLocaleString();
-          } else if (i === 1) {
-            el.innerText = Math.floor(el.innerText) + "%";
-          } else {
-            el.innerText = Math.floor(el.innerText) + "/7";
-          }
-        }
-      });
-    });
   }, []);
 
   return (
     <section className="hero" id="hero" ref={heroRef}>
       <div className="container hero-content">
         <div className="hero-text" ref={textRef}>
-          <div className="hero-badge">
-            <span className="badge-dot"></span>
-            <span>PrepNexus — Your Personal AI Tutor</span>
-          </div>
           <h1>
              Your Personal AI Tutor for JEE & NEET
           </h1>
@@ -119,74 +75,51 @@ const Hero = ({ onShowAuth }) => {
               <span>Watch Demo</span>
               <i className="fas fa-play"></i>
             </a>
-            <button onClick={onShowAuth} className="btn btn-secondary">
-              <span>Login / Sign Up</span>
-              <i className="fas fa-user"></i>
-            </button>
-          </div>
-          <div className="hero-stats" ref={statsRef}>
-            <div className="stat-item">
-              <span className="number">30%</span>
-              <span className="label">Early users improved in beta</span>
-            </div>
-            <div className="stat-item">
-              <span className="number">24/7</span>
-              <span className="label">AI tutor available</span>
-            </div>
-            <div className="stat-item">
-              <span className="number">100%</span>
-              <span className="label">Personalized for every student</span>
-            </div>
           </div>
         </div>
         <div className="hero-visual">
-          <div className="ai-buddy-card" style={{position: 'relative', overflow: 'visible'}}>
-            {/* Animated SVG AI Circuit/Neural Network Background */}
-            <svg className="ai-circuit-bg" width="260" height="180" viewBox="0 0 260 180" fill="none" xmlns="http://www.w3.org/2000/svg" style={{position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)', zIndex: 0, pointerEvents: 'none', opacity: 0.22}}>
-              <g>
-                <circle cx="130" cy="90" r="70" stroke="#ffd60a" strokeWidth="2" fill="none"/>
-                <circle cx="130" cy="90" r="40" stroke="#00b4d8" strokeWidth="1.5" fill="none"/>
-                <circle cx="130" cy="90" r="20" stroke="#48cae4" strokeWidth="1" fill="none"/>
-                <g className="ai-circuit-lines">
-                  <line x1="130" y1="20" x2="130" y2="40" stroke="#ffd60a" strokeWidth="2"/>
-                  <line x1="130" y1="140" x2="130" y2="160" stroke="#00b4d8" strokeWidth="2"/>
-                  <line x1="60" y1="90" x2="90" y2="90" stroke="#48cae4" strokeWidth="2"/>
-                  <line x1="170" y1="90" x2="200" y2="90" stroke="#ffd60a" strokeWidth="2"/>
-                  <line x1="90" y1="50" x2="110" y2="70" stroke="#00b4d8" strokeWidth="1.5"/>
-                  <line x1="170" y1="50" x2="150" y2="70" stroke="#48cae4" strokeWidth="1.5"/>
-                  <line x1="90" y1="130" x2="110" y2="110" stroke="#ffd60a" strokeWidth="1.5"/>
-                  <line x1="170" y1="130" x2="150" y2="110" stroke="#00b4d8" strokeWidth="1.5"/>
-                </g>
-                <g className="ai-circuit-nodes">
-                  <circle cx="130" cy="20" r="4" fill="#ffd60a"/>
-                  <circle cx="130" cy="160" r="3" fill="#00b4d8"/>
-                  <circle cx="60" cy="90" r="3" fill="#48cae4"/>
-                  <circle cx="200" cy="90" r="3" fill="#ffd60a"/>
-                  <circle cx="90" cy="50" r="2.5" fill="#00b4d8"/>
-                  <circle cx="170" cy="50" r="2.5" fill="#48cae4"/>
-                  <circle cx="90" cy="130" r="2.5" fill="#ffd60a"/>
-                  <circle cx="170" cy="130" r="2.5" fill="#00b4d8"/>
-                </g>
-              </g>
-            </svg>
-            <div className="ai-buddy-glow" style={{zIndex: 1}}></div>
-            <div className="ai-buddy-robot" style={{zIndex: 2}}>
-              <span className="ai-buddy-face" role="img" aria-label="robot">🤖</span>
-              <span className="ai-buddy-hand" role="img" aria-label="wave">👋</span>
+          <div className="achievement-showcase">
+            {/* Floating Achievement Cards */}
+            <div className="achievement-card rank-card">
+              <div className="achievement-icon">🏆</div>
+              <div className="achievement-content">
+                <h4>AIR 1-100</h4>
+                <p>Students Achieved</p>
+                <div className="achievement-number">2,847</div>
+              </div>
             </div>
-            {/* Particle Glow Effects */}
-            <div className="particle" style={{zIndex: 2}}></div>
-            <div className="particle" style={{zIndex: 2}}></div>
-            <div className="particle" style={{zIndex: 2}}></div>
-            <div className="particle" style={{zIndex: 2}}></div>
-            <div className="particle" style={{zIndex: 2}}></div>
-            <div className="sparkle" style={{zIndex: 2}}></div>
-            <div className="sparkle" style={{zIndex: 2}}></div>
-            <div className="sparkle" style={{zIndex: 2}}></div>
-            <div className="chatbot-teaser" style={{marginTop: 8}}>
-              💬 “Hi! I’m your AI Study Buddy. Ask me a doubt, get a study plan, or start a quick mock test.”
+            
+            <div className="achievement-card improvement-card">
+              <div className="achievement-icon">📈</div>
+              <div className="achievement-content">
+                <h4>Score Boost</h4>
+                <p>Average Improvement</p>
+                <div className="achievement-number">+127</div>
+              </div>
             </div>
-            <BubblesTyping />
+            
+            <div className="achievement-card time-card">
+              <div className="achievement-icon">⚡</div>
+              <div className="achievement-content">
+                <h4>Study Time</h4>
+                <p>Reduced by</p>
+                <div className="achievement-number">40%</div>
+              </div>
+            </div>
+            
+            {/* Central Success Visualization */}
+            <div className="success-center">
+              <div className="success-ring">
+                <div className="success-percentage">95%</div>
+                <div className="success-label">Success Rate</div>
+              </div>
+              <div className="floating-elements">
+                <span className="float-element">📚</span>
+                <span className="float-element">🎯</span>
+                <span className="float-element">⭐</span>
+                <span className="float-element">🚀</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -197,108 +130,3 @@ const Hero = ({ onShowAuth }) => {
 
 export default Hero;
 
-
-// Move messages array outside the component to avoid re-creating it on every render
-const aiBuddyMessages = [
-  "Hi! I'm your AI Study Buddy!",
-  "Ask me anything about JEE/NEET 📚",
-  "Let's ace your exams together! 🚀"
-];
-
-
-const buddyResponses = [
-  "Great question! Keep going! 💡",
-  "You're doing awesome! 🚀",
-  "That's a smart one! 😎",
-  "Let me think... 🤔",
-  "Practice makes perfect! Keep it up!",
-  "Wow, you're curious! I love it!",
-  "Stay positive and keep learning! 🌟",
-  "You got this! Ask me anything!"
-];
-
-function BubblesTyping() {
-  const { displayed, current } = useTypingBubbles(aiBuddyMessages, 28, 600);
-  const [userInput, setUserInput] = useState("");
-  const [chat, setChat] = useState([]); // {from: 'user'|'buddy', text: string}
-  const [buddyTyping, setBuddyTyping] = useState(false);
-  const inputRef = useRef();
-
-  // Debug: force visible text and border
-  const debugStyle = {
-    color: '#222',
-    background: 'rgba(255,255,255,0.85)',
-    border: '1px solid #eee',
-    borderRadius: '16px',
-    padding: '6px 16px',
-    margin: '8px 0',
-    fontSize: '1rem',
-    minHeight: '28px',
-    display: 'inline-block',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.04)'
-  };
-
-function handleSend(e) {
-    e.preventDefault();
-    const question = userInput.trim();
-    console.log("User input:", question); // Debugging statement
-    if (!question) return;
-    setChat((prev) => [...prev, { from: 'user', text: question }]);
-    setUserInput("");
-    setBuddyTyping(true);
-    setTimeout(() => {
-      const resp = buddyResponses[Math.floor(Math.random() * buddyResponses.length)];
-      setChat((prev) => [...prev, { from: 'buddy', text: resp }]);
-      setBuddyTyping(false);
-    }, 900 + Math.random() * 800);
-    inputRef.current && inputRef.current.focus();
-  }
-
-  return (
-    <>
-      <div className="ai-buddy-bubbles" style={{minHeight: '100px', padding: '8px 0'}}>
-        {aiBuddyMessages.map((msg, i) => (
-          <div className={`ai-bubble ai-bubble-${i+1}`} key={i} style={debugStyle}>
-            {displayed[i] || ''}
-            {current === i && displayed[i].length < msg.length ? (
-              <span className="typing-cursor" style={{color: '#222'}}>|</span>
-            ) : null}
-          </div>
-        ))}
-        {/* Fallback: show something if nothing is visible */}
-        {displayed.every((d) => !d) && <div style={{color: 'red'}}>No message is being typed</div>}
-        {/* User and buddy chat bubbles */}
-        {chat.map((msg, i) => (
-          <div
-            key={i}
-            style={{
-              ...debugStyle,
-              alignSelf: msg.from === 'user' ? 'flex-end' : 'flex-start',
-              background: msg.from === 'user' ? 'rgba(0,180,255,0.12)' : debugStyle.background,
-              color: msg.from === 'user' ? '#0077b6' : debugStyle.color,
-              border: msg.from === 'user' ? '1px solid #bde0fe' : debugStyle.border
-            }}
-          >
-            {msg.text}
-          </div>
-        ))}
-        {buddyTyping && (
-          <div style={{...debugStyle, fontStyle: 'italic', color: '#888'}}>Buddy is typing...</div>
-        )}
-      </div>
-      <form onSubmit={handleSend} style={{display: 'flex', gap: 8, marginTop: 8, zIndex: 3}}>
-        <input
-          ref={inputRef}
-          type="text"
-          value={userInput}
-          onChange={e => setUserInput(e.target.value)}
-          placeholder="Ask your AI Buddy..."
-          style={{flex: 1, borderRadius: 16, border: '1px solid #eee', padding: '8px 12px', fontSize: '1rem'}}
-        />
-        <button type="submit" style={{borderRadius: 16, padding: '8px 18px', background: '#ffd60a', border: 'none', fontWeight: 600, color: '#222', cursor: 'pointer'}}>Send</button>
-      </form>
-    </>
-  );
-}
-
-// ...existing code...

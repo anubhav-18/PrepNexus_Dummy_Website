@@ -4,7 +4,6 @@ const HowItWorks = () => (
   <section className="how-it-works">
     <div className="container">
       <div className="section-header">
-        <div className="section-badge">🚀 Your AI Tutor Works in 3 Simple Steps</div>
         <h2>Our intelligent system works in three simple steps</h2>
         <p>Maximize your JEE/NEET preparation efficiency with AI-powered learning</p>
       </div>
