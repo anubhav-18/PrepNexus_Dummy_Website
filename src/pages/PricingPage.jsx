@@ -79,10 +79,9 @@ const PricingPage = () => {
     <PageWrapper>
       <Navbar />
       
-
-      <section style={{ 
-        position: 'relative', 
-        zIndex: 2, 
+      <section style={{
+        position: 'relative',
+        zIndex: 2,
         padding: '40px 20px 80px 20px',
         maxWidth: '1200px',
         margin: '0 auto'
@@ -152,33 +151,33 @@ const PricingPage = () => {
         </div>
 
         {/* Tab Navigation */}
-                 <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '32px' }}>
-           <div style={{
-             background: 'rgba(255, 255, 255, 0.8)',
-             backdropFilter: 'blur(20px)',
-             border: '1px solid rgba(0, 0, 0, 0.1)',
-             borderRadius: '16px',
-             padding: '6px',
-             boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)'
-           }}>
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '32px' }}>
+          <div style={{
+            background: 'rgba(255, 255, 255, 0.8)',
+            backdropFilter: 'blur(20px)',
+            border: '1px solid rgba(0, 0, 0, 0.1)',
+            borderRadius: '16px',
+            padding: '6px',
+            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)'
+          }}>
             {['students', 'institutions'].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                                 style={{
-                   background: activeTab === tab ? '#3b82f6' : 'transparent',
-                   border: 'none',
-                   padding: '12px 24px',
-                   borderRadius: '12px',
-                   fontWeight: 600,
-                   fontSize: '0.95rem',
-                   color: activeTab === tab ? 'white' : '#475569',
-                   transition: 'all 0.4s ease',
-                   cursor: 'pointer',
-                   display: 'inline-flex',
-                   alignItems: 'center',
-                   gap: '8px'
-                 }}
+                style={{
+                  background: activeTab === tab ? '#3b82f6' : 'transparent',
+                  border: 'none',
+                  padding: '12px 24px',
+                  borderRadius: '12px',
+                  fontWeight: 600,
+                  fontSize: '0.95rem',
+                  color: activeTab === tab ? 'white' : '#475569',
+                  transition: 'all 0.4s ease',
+                  cursor: 'pointer',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px'
+                }}
               >
                 {tab === 'students' ? <FaGraduationCap /> : <FaUsers />}
                 {tab === 'students' ? 'For Students' : 'For Institutions'}
@@ -190,30 +189,30 @@ const PricingPage = () => {
         {activeTab === 'students' && (
           <>
             {/* Billing Toggle */}
-                         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '32px' }}>
-               <div style={{
-                 background: 'rgba(255, 255, 255, 0.8)',
-                 backdropFilter: 'blur(20px)',
-                 border: '1px solid rgba(0, 0, 0, 0.1)',
-                 borderRadius: '12px',
-                 padding: '4px',
-                 boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)'
-               }}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '32px' }}>
+              <div style={{
+                background: 'rgba(255, 255, 255, 0.8)',
+                backdropFilter: 'blur(20px)',
+                border: '1px solid rgba(0, 0, 0, 0.1)',
+                borderRadius: '12px',
+                padding: '4px',
+                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)'
+              }}>
                 {['monthly', 'annual'].map((cycle) => (
                   <button
                     key={cycle}
                     onClick={() => setBillingCycle(cycle)}
-                                         style={{
-                       background: billingCycle === cycle ? '#3b82f6' : 'transparent',
-                       border: 'none',
-                       padding: '8px 16px',
-                       borderRadius: '8px',
-                       fontWeight: 600,
-                       fontSize: '0.85rem',
-                       color: billingCycle === cycle ? 'white' : '#475569',
-                       transition: 'all 0.4s ease',
-                       cursor: 'pointer'
-                     }}
+                    style={{
+                      background: billingCycle === cycle ? '#3b82f6' : 'transparent',
+                      border: 'none',
+                      padding: '8px 16px',
+                      borderRadius: '8px',
+                      fontWeight: 600,
+                      fontSize: '0.85rem',
+                      color: billingCycle === cycle ? 'white' : '#475569',
+                      transition: 'all 0.4s ease',
+                      cursor: 'pointer'
+                    }}
                   >
                     {cycle === 'monthly' ? 'Monthly' : 'Annual'}
                   </button>
